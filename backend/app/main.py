@@ -2,7 +2,7 @@ from fastapi import FastAPI
 
 from app.api.root import router as root_router
 from app.api.health import router as health_router
-
+from app.api.auth import router as auth
 from app.core.config import settings
 from app.core.lifespan import lifespan
 
@@ -15,3 +15,8 @@ app = FastAPI(
 
 app.include_router(root_router)
 app.include_router(health_router)
+app.include_router(
+    auth,
+    prefix="/auth",
+    tags=["Authentication"]
+)

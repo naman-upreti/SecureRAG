@@ -39,4 +39,9 @@ class Settings(BaseSettings):
     )
 
 
+    #JWT
+    SECRET_KEY: str = "change_this_to_a_long_random_secret"
+    ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
+
 settings = Settings()
